@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.oopworkshopv2.controller.NotesController">
+    <top>
+        <VBox spacing="8.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="12.0" right="12.0" bottom="0.0" left="12.0"/>
+            </padding>
+            <Label text="Supabase Notes (JavaFX + JDBC)" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <HBox spacing="8.0">
+                <Button text="Refresh" onAction="#onRefresh"/>
+                <Button text="Add" onAction="#onAdd"/>
+                <Button fx:id="editButton" text="Edit" disable="true" onAction="#onEdit"/>
+                <Button fx:id="deleteButton" text="Delete" disable="true" onAction="#onDelete"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="notesTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="titleColumn" text="Title" prefWidth="420.0"/>
+                <TableColumn fx:id="createdAtColumn" text="Created" prefWidth="220.0"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="6.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10.0" right="0.0" bottom="0.0" left="0.0"/>
+            </padding>
+            <Label fx:id="detailsTitleLabel" text="Select a note to see details"
+                   style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="detailsContentArea" editable="false" wrapText="true" prefRowCount="5"
+                      VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </bottom>
+
+    <padding>
+        <Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/>
+    </padding>
+</BorderPane>
